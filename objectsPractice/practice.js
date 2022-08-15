@@ -1,11 +1,11 @@
-const house = {
-    doors: 9,
-    windows: {
-        bay: 1,
-        long: 5,
-        stainedGlass: 3
-    }
-}
+// const house = {
+//     doors: 9,
+//     windows: {
+//         bay: 1,
+//         long: 5,
+//         stainedGlass: 3
+//     }
+// }
 
 // The name of your cat
 // The age of your cat

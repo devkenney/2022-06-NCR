@@ -1,0 +1,30 @@
+/* least specific */
+* {
+    color: black
+}
+
+
+/* second least specific - overrides only the universal selector */
+div {
+    color: blue
+}
+
+/* right after element selector, we have the class selector. This will override elements and the universal */
+.myClass {
+    border: 1px solid gold;
+    margin: 100 100;
+    color: yellow;
+}
+
+/* This comes after classes and overrides all other types of property that exist in a CSS file */
+#myId {
+    color: green;
+}
+
+#myId2 {
+    color: blue;
+}
+
+/* Next is Inline Style which is done inside of your HTML file. This should only be used as a last resort. */
+
+/* finally, is !important. NEVER USE THIS IT IS VERY BAD */
