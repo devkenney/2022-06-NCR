@@ -45,6 +45,8 @@ function same(arr1, arr2){
   return true // if all of the keys pass inspection, returns true
 }
 
+// Time complexity would be: O(n) + O(n) + O(n) which simplifies to just O(n)
+
 console.log(same([1,2,3], [4,1,9])) // true
 console.log(same([1,2,3], [1,9])) // false
 console.log(same([1,2,1], [4,4,1])) // false (must be same frequency)
