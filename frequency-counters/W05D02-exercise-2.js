@@ -6,10 +6,10 @@
 // maxChar("apple 1231111") === "1
 // use a frequencyCounter no nested loops
 
-function maxChar(str){
+function maxChar(str) {
   let frequency = {};
   let arr = str.split('');
-  
+
   for (let i = 0; i < arr.length; i++) {
     if (frequency[arr[i]]) {
       frequency[arr[i]]++;

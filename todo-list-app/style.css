@@ -1,0 +1,51 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-stuff {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkblue;
+  color: white;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 7px;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  border-radius: 3px;
+  border: none;
+  background-color: whitesmoke;
+  color:darkcyan;
+  padding: 1em;
+  margin-right: 1em;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 1em;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+body {
+  background-color: darkgrey;
+}
