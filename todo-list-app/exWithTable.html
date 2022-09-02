@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>Todo</th>
+      <th>Delete Button</th>
+    </tr>
+  </table>
+  <script>
+    const tableEl = document.querySelector('table')
+
+    const rowEl = document.createElement('tr')
+    const dataEl = document.createElement('td')
+    dataEl.textContent // set this to input data
+    rowEl.appendChild(dataEl)
+
+    const buttonDataEl = document.createElement('td')
+    const buttonEl = document.createElement('button')
+    buttonDataEl.appendChild(buttonEl);
+    rowEl.appendChild(buttonDataEl)
+
+    tableEl.appendChild(rowEl)    
+
+  </script>
+</body>
+</html>

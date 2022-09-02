@@ -20,6 +20,7 @@ li {
   padding: 1em;
   margin: 1em;
   border-radius: 7px;
+  width: 50vw;
 }
 
 h1 {
@@ -48,4 +49,9 @@ button:hover {
 
 body {
   background-color: darkgrey;
+}
+
+li div {
+  flex-grow: 5;
+  text-align: center;
 }
