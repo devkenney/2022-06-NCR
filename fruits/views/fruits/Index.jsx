@@ -6,12 +6,14 @@ const Index = (props) => {
     <div>
       <h1> Index Route </h1>
 
+      <a href="/fruits/new">Create a New Fruit!</a>
+
       <ul>
         {
           props.fruits.map((fruit, index) => {
             return (
               <li key={index}>
-                The {fruit.name} is {fruit.color}             {fruit.readyToEat ? " It's ready to eat!" : " It's not ready to eat!"}
+                The {fruit.name} is {fruit.color} {fruit.readyToEat ? " It's ready to eat!" : " It's not ready to eat!"}
               </li>
             )
           })
