@@ -13,7 +13,7 @@ const Index = (props) => {
           props.fruits.map((fruit, index) => {
             return (
               <li key={index}>
-                The {fruit.name} is {fruit.color} {fruit.readyToEat ? " It's ready to eat!" : " It's not ready to eat!"}
+                The <a href={`/fruits/${fruit._id}`}>{fruit.name}</a> is {fruit.color} {fruit.readyToEat ? " It's ready to eat!" : " It's not ready to eat!"}
               </li>
             )
           })

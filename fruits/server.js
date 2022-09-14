@@ -47,9 +47,11 @@ app.post('/fruits', (req, res) => {
   })
 });
 
-app.get('/fruits/:indexOfArr', (req, res) => {
-  res.render('fruits/Show', {
-    fruit: fruits[req.params.indexOfArr]
+app.get('/fruits/:id', (req, res) => {
+  Fruit.findOne({ _id: req.params.id }, (error, foundFruit) => {
+    res.render('fruits/Show', {
+      fruit: foundFruit
+    });
   });
 });
 
