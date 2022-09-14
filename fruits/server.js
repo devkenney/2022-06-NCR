@@ -4,6 +4,7 @@ const fruits = require('./models/fruits');
 const veggies = require('./models/veggies');
 require('dotenv').config();
 const mongoose = require('mongoose')
+const Fruit = require('./models/Fruit');
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -24,9 +25,11 @@ app.use((req, res, next) => {
 });
 
 app.get('/fruits', (req, res) => {
-  res.render('fruits/Index', {
-    fruits: fruits
-  });
+  Fruit.find({}, (error, allFruits) => {
+    res.render('fruits/Index', {
+      fruits: allFruits
+    });
+  })
 });
 
 app.get('/fruits/new', (req, res) => {
@@ -39,8 +42,9 @@ app.post('/fruits', (req, res) => {
   } else {
     req.body.readyToEat = false;
   }
-  fruits.push(req.body);
-  res.redirect('/fruits')
+  Fruit.create(req.body, (error, createdFruit) => {
+    res.redirect('/fruits')
+  })
 });
 
 app.get('/fruits/:indexOfArr', (req, res) => {
