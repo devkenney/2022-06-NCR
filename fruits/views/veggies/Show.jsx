@@ -13,3 +13,5 @@ const Show = (props) => {
 }
 
 module.exports = Show;
+
+// This page can basically stay the same.

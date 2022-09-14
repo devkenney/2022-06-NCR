@@ -21,3 +21,5 @@ const Index = (props) => {
 }
 
 module.exports = Index;
+
+// only change is to modify line 13 to use the _id instead of the index!
