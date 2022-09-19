@@ -5,8 +5,9 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const Fruit = require('./models/Fruit');
+const methodOverride = require('method-override');
 
 // -------------------------
 // Mongoose Connection Stuff
@@ -34,6 +35,12 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.urlencoded({extended:false}));
 
 // -------------------------
+// Method Override
+// -------------------------
+
+app.use(methodOverride('_method'));
+
+// -------------------------
 // Fruit Routes
 // -------------------------
 
@@ -53,6 +60,39 @@ app.get('/fruits/new', (req, res) => {
   res.render('fruits/New');
 });
 
+// Delete
+
+app.delete('/fruits/:id', (req, res) => {
+  Fruit.deleteOne({
+    _id: req.params.id
+  }, (error, data) => {
+    console.log(data);
+    res.redirect('/fruits');
+  })
+});
+
+// Update
+
+app.put('/fruits/:id', (req, res) => {
+  if (req.body.readyToEat === 'on') {
+    req.body.readyToEat = true
+  } else {
+    req.body.readyToEat = false
+  }
+  Fruit.updateOne({
+    _id: req.params.id
+  }, req.body, (error, data) => {
+    if (error) {
+      console.error(error);
+      res.json({
+        error: error
+      });
+    } else {
+      res.redirect(`/fruits/$req.params.id`);
+    }
+  });
+});
+
 // Create
 
 app.post('/fruits', (req, res) => {
@@ -63,6 +103,23 @@ app.post('/fruits', (req, res) => {
   }
   Fruit.create(req.body, (error, createdFruit) => {
     res.redirect('/fruits')
+  })
+});
+
+// Edit
+
+app.get('/fruits/:id/edit', (req, res) => {
+  Fruit.findOne({
+    _id: req.params.id
+  }, (error, foundFruit) => {
+    if (error) {
+      console.error(error);
+      res.json({
+        error: error
+      })
+    } else {
+      res.render('fruits/Edit', { fruit: foundFruit });
+    }
   })
 });
 
