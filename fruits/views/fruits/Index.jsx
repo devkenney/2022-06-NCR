@@ -1,26 +1,28 @@
 const React = require('react');
+const DefaultLayout = require('../components/Default');
+const ListItem = require('../components/ListItem');
 
 const Index = (props) => {
 
   return (
-    <div>
-      <h1> Index Route </h1>
+    <DefaultLayout title={"Fruits Index Page"}>
+      <div>
+        <h1> Index Route </h1>
 
-      <a href="/fruits/new">Create a New Fruit!</a>
+        <a href="/fruits/new">Create a New Fruit!</a>
 
-      <ul>
-        {
-          props.fruits.map((fruit, index) => {
-            return (
-              <li key={index}>
-                The <a href={`/fruits/${fruit._id}`}>{fruit.name}</a> is {fruit.color} {fruit.readyToEat ? " It's ready to eat!" : " It's not ready to eat!"}
-              </li>
-            )
-          })
-        }
-      </ul>
+        <ul>
+          {
+            props.fruits.map((fruit, index) => {
+              return (
+                <ListItem key={index} fruit={fruit} />
+              )
+            })
+          }
+        </ul>
 
-    </div>
+      </div>
+    </DefaultLayout>
   )
 
 }

@@ -4,8 +4,6 @@
 
 const express = require('express');
 const app = express();
-const fruits = require('./models/fruits');
-const veggies = require('./models/veggies');
 require('dotenv').config();
 const mongoose = require('mongoose')
 const Fruit = require('./models/Fruit');
@@ -87,9 +85,9 @@ app.get('/fruits/:id', (req, res) => {
 // Add a Veggie.find to find all of the veggies and pass that to your res.render
 
 app.get('/veggies', (req, res) => {
-  res.render('veggies/Index', {
-    veggies: veggies
-  });
+  // res.render('veggies/Index', {
+  //   veggies: veggies
+  // });
 });
 
 // New
@@ -113,9 +111,9 @@ app.post('/veggies', (req, res) => {
 // Add a Veggie.findOne with the _id of the veggie you want to display. Reference the fruits one!
 
 app.get('/veggies/:indexOfArr', (req, res) => {
-  res.render('veggies/Show', {
-    veggie: veggies[req.params.indexOfArr]
-  });
+  // res.render('veggies/Show', {
+  //   veggie: veggies[req.params.indexOfArr]
+  // });
 });
 
 // -------------------------
