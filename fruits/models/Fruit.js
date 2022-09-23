@@ -6,8 +6,10 @@ const fruitSchema = new mongoose.Schema({
   name: { type: String, required: true },
   // name has a data type of String and is required
   color: { type: String, required: true },
-  readyToEat: { type: Boolean }
+  readyToEat: { type: Boolean },
   // readyToEat has a data type of Boolean and is not required
+  username: { type: String }
+
 });
 
 const Fruit = mongoose.model('Fruit', fruitSchema); // creates a model called 'Fruit' using the schema provided above. This is what actually will create new fruits

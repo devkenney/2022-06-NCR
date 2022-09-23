@@ -69,7 +69,7 @@ router.get('/reset', (req, res) => {
 // Index
 
 router.get('/', (req, res) => {
-  Fruit.find({}, (error, allFruits) => {
+  Fruit.find({ username: req.session.username }, (error, allFruits) => {
     res.render('fruits/Index', {
       fruits: allFruits
     });
@@ -123,6 +123,7 @@ router.post('', (req, res) => {
   } else {
     req.body.readyToEat = false;
   }
+  req.body.username = req.session.username;
   Fruit.create(req.body, (error, createdFruit) => {
     res.redirect('/fruits')
   })
