@@ -11,6 +11,8 @@ const Index = (props) => {
 
         <a href="/fruits/new">Create a New Fruit!</a>
 
+        <a href="/users/logout"><button>Logout!</button></a>
+
         <ul>
           {
             props.fruits.map((fruit, index) => {
