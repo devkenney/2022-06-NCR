@@ -8,6 +8,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const Fruit = require('./models/Fruit');
 const methodOverride = require('method-override');
+const seedData = require('./models/seed');
 
 // -------------------------
 // Mongoose Connection Stuff
@@ -42,6 +43,61 @@ app.use(methodOverride('_method'));
 
 // -------------------------
 // Fruit Routes
+// -------------------------
+
+
+// -------------------------
+// SEED ROUTES
+// -------------------------
+
+// CLEAR DATABASE ROUTE -- TESTING ROUTE (NOT RUN BY USERS)
+
+app.get('/fruits/clear', (req, res) => {
+  Fruit.deleteMany({}, (error, data) => {
+    if (error) {
+      console.error(error);
+    } else {
+      res.json({
+        message: 'Cleared'
+      });
+    }
+  });
+});
+
+// SEED DATABASE ROUTE -- TESTING ROUTE (NOT RUN BY USERS)
+
+app.get('/fruits/seed', (req, res) => {
+  Fruit.insertMany(seedData, (error, createdFruits) => {
+    if (error) {
+      console.error(error);
+    } else {
+      res.json({
+        message: 'Seeded'
+      });
+    }
+  });
+});
+
+// RESET DATABASE ROUTE -- TESTING ROUTE (NOT RUN BY USERS)
+
+app.get('/fruits/reset', (req, res) => {
+  Fruit.deleteMany({}, (error, data) => {
+    if (error) {
+      console.error(error);
+    } else {
+      Fruit.insertMany(seedData, (error, createdFruits) => {
+        if (error) {
+          console.error(error);
+        } else {
+          res.json({
+            message: 'Database has been Reset'
+          });
+        }
+      });
+    }
+  });
+});
+
 // -------------------------
 
 // Index
@@ -88,7 +144,7 @@ app.put('/fruits/:id', (req, res) => {
         error: error
       });
     } else {
-      res.redirect(`/fruits/$req.params.id`);
+      res.redirect(`/fruits/${req.params.id}`);
     }
   });
 });
