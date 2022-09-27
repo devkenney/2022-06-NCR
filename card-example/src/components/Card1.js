@@ -5,8 +5,8 @@ import Button from "./Button";
 export default function Card1(props) {
   return (
     <div className="card" style={{ width: "18rem" }}>
-      <CardImage />
-      <CardBody />
+      <CardImage img={props.img} />
+      <CardBody title={props.title} text={props.text} url={props.url} />
     </div>
   );
 }

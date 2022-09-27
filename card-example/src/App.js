@@ -5,17 +5,17 @@ import Card2 from "./components/Card2";
 import cardsArr from "./data";
 // console.log(cardsArr)
 
-const cards = cardsArr.map((ele, idx) => {
+const cards = cardsArr.map((element, index) => {
+  console.log(element);
   return (
     <Card1
-      key={idx}
-      title={ele.title}
-      url={ele.url}
-      img={ele.img}
-      text={ele.text}
+      img={element.img}
+      title={element.title}
+      text={element.text}
+      url={element.url}
     />
-  );
-});
+  )
+})
 
 // console.log(cards);
 
