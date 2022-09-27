@@ -15,7 +15,7 @@ const cards = cardsArr.map((element, index) => {
       url={element.url}
     />
   )
-})
+});
 
 // console.log(cards);
 
@@ -24,8 +24,9 @@ export default function App() {
     <div className="App">
       <h1>Bootstrap Cards To Component Example</h1>
       <section className="cards">
-        <Card1 />
-        <Card2 />
+        {cards}
+        {/* <Card1 />
+        <Card2 /> */}
       </section>
     </div>
   );

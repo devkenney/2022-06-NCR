@@ -13,6 +13,6 @@ export default [
     title: "Zakynthos",
     text:
       "This was like being a pirate and we were looking to bury our treasure. It was so isolated and beautiful. ",
-    url: "https://unsplash.com/s/photos/santorini"
+    url: "https://unsplash.com/s/photos/zakynthos"
   }
 ];
