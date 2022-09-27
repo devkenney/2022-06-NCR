@@ -1,18 +1,15 @@
 import "./styles.css";
 //import card1
-import Card1 from "./components/Card1";
+import Card from "./components/Card";
 import Card2 from "./components/Card2";
 import cardsArr from "./data";
 // console.log(cardsArr)
 
 const cards = cardsArr.map((element, index) => {
-  console.log(element);
   return (
-    <Card1
-      img={element.img}
-      title={element.title}
-      text={element.text}
-      url={element.url}
+    <Card
+      key={index}
+      {...element}
     />
   )
 });

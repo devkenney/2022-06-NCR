@@ -1,6 +1,6 @@
-export default function Button(props) {
+export default function Button({ url }) {
   return (
-    <a href={props.url} className="btn btn-primary">
+    <a href={url} className="btn btn-primary">
       Go somewhere
     </a>
   );
