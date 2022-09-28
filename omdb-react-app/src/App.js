@@ -1,7 +1,16 @@
 import './App.css';
 import Form from './components/Form';
 import MovieDisplay from './components/MovieDisplay';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+const randomMovies = [
+  "Benjamin Button",
+  "Forrest Gump",
+  "Babes in Toyland",
+  "The Matrix",
+  "Earth Girls are Easy",
+  "Deadpool"
+]
 
 function App() {
 
@@ -10,10 +19,18 @@ function App() {
   const [movie, setMovie] = useState(null)
 
   const getMovie = async (searchTerm) => {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`)
-    const data = await response.json();
-    setMovie(data);
+    try {
+      const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`)
+      const data = await response.json();
+      setMovie(data);
+    } catch (error) {
+      console.error(error);
+    }
   }
+
+  useEffect(() => {
+    getMovie(randomMovies[Math.floor(Math.random() * randomMovies.length)]);
+  }, [])
 
   return (
     <div className="App">
