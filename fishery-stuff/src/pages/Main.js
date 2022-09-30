@@ -10,7 +10,6 @@ export default function Main (props) {
             <div>
               <Link to={`/species/${fish["Species Name"].toLowerCase().split(' ').join('-')}`}><h2>{fish["Species Name"]}</h2></Link>
               <h3>{fish["Scientific Name"]}</h3>
-              {/* <img src={fish["Species Illustration Photo"].src} /> */}
             </div>
           )
         })
