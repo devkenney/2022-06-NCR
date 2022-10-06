@@ -90,3 +90,17 @@ This route is your *index* route and should have some basic information about ea
 ---
 
 No matter where you are on your website, you should have a navigation bar present at the top of your screen so that you can get to all of the different pages you have on your site. The pages you should include in your navbar are the **Homepage**, **About Page**, and the **Dashboard**. The **Stock** page, for displaying a single stock should only be accessed through the index (**Dashboard**) page.
+
+---
+
+## Recommended Order:
+
+---
+
+1. Create all of your page files inside of a *pages* folder in your *src* directory
+2. `npm i react-router-dom`
+3. insert your BrowserRouter into your `index.js` file
+4. set up your routes inside of your `App.js`
+5. put the boilerplate inside of all of your page files
+6. work on index page first (Dashboard)
+7. then work on show page (Stock)
