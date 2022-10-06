@@ -18,6 +18,8 @@ function App() {
           Learn React
         </a>
       </header>
+      {/* <label htmlFor="username">Username</label>
+      <input type="text" name="username" /> */}
     </div>
   );
 }
