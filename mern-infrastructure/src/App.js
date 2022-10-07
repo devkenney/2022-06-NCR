@@ -8,7 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 
 function App() {
 
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
 
   return (
     <div className="App">
