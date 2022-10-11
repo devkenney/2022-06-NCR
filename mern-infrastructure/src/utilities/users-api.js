@@ -13,7 +13,7 @@ export async function signUp(userData) {
 
   // This is the better way, using AXIOS!
   const response = await axios.post(BASE_URL, userData)
-  if (response.status === 200) {
+  if (response.status === 201) {
     return response.data
   } else {
     throw new Error('Invalid Sign Up!')

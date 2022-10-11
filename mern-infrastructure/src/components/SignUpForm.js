@@ -25,7 +25,7 @@ export default function SignUpForm (props) {
       }
 
       const user = await signUp(payload);
-      console.log(user)
+      props.setUser(user);
 
     } catch {
       setErrorState('Sign Up Failed - Try Again');
@@ -33,7 +33,6 @@ export default function SignUpForm (props) {
   }
 
   const handleChange = (event) => {
-    console.log(event.target);
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }
 

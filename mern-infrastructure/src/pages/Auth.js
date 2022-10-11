@@ -4,7 +4,7 @@ export default function Auth (props) {
   return (
     <main>
       <h1>Auth Page</h1>
-      <SignUpForm />
+      <SignUpForm setUser={props.setUser}/>
     </main>
   )
 }
