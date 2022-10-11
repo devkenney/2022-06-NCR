@@ -24,7 +24,7 @@ export default function SignUpForm (props) {
         name: formData.name
       }
 
-      const user = await signUp(formData);
+      const user = await signUp(payload);
       console.log(user)
 
     } catch {

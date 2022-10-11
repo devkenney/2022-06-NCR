@@ -1,5 +1,6 @@
-const BASE_URL = '/api/users';
 import axios from 'axios';
+const BASE_URL = '/api/users';
+
 
 
 export async function signUp(userData) {
