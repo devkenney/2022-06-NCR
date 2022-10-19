@@ -1,5 +1,6 @@
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const createJWT = (user) => {
   return jwt.sign(
@@ -23,6 +24,29 @@ const create = (req, res) => {
   });
 }
 
+const login = (req, res) => {
+  User.findOne({ email: req.body.email }, async (error, foundUser) => {
+    if (foundUser) {
+      const result = await bcrypt.compare(req.body.password, foundUser.password)
+      if (result) {
+        const token = createJWT(foundUser);
+        res.status(200).json({
+          jwt_token: token
+        })
+      } else {
+        res.status(401).json({
+          error: 'incorrect password'
+        })
+      }
+    } else {
+      res.status(404).json({
+        error: 'User Not Found!'
+      })
+    }
+  })
+}
+
 module.exports = {
-  create
+  create,
+  login
 }

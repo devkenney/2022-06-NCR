@@ -17,14 +17,14 @@ function App() {
       {
         user ?
           <>
-            <NavBar user={user} />
+            <NavBar setUser={setUser} user={user} />
             <Routes>
               <Route path="/orders/new" element={<NewOrder />} />
               <Route path="/orders" element={<OrderHistory />} />
               <Route path="/test/:symbol" element={<Test />} />
             </Routes>
           </>
-          :
+        :
           <Auth setUser={setUser} />
       }
     </div>
